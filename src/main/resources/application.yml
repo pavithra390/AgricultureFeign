@@ -1,0 +1,33 @@
+server:
+  port: 1992
+
+spring:
+  application:
+    name: AgricultureFeign
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8766/eureka/
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+resilience4j:
+  circuitbreaker:
+    instances:
+      AgricultureFeign:
+        registerHealthIndicator: true
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        wait-duration-in-open-state: 5s
+        automatic-transition-from-open-to-half-open-enabled: true
+        permitted-number-of-calls-in-half-open-state: 3
+
