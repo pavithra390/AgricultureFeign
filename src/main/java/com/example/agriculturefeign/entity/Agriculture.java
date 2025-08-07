@@ -31,7 +31,7 @@ public class Agriculture {
         public void setCropName(String cropName) {
             this.cropName = cropName;
         }
-
+       //this is getter method
         public Integer getId() {
             return id;
         }
