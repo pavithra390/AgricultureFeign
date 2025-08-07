@@ -14,6 +14,7 @@ import java.util.Optional;
 public class AgricultureController {
     @Autowired
     Feign feign;
+    //injecting feign class
     @PostMapping("/consumer/addingRecord")
     //http://localhost:1992/consumer/addingRecord
     public String addAgriculture(@RequestBody Agriculture a) {
